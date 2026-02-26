@@ -1,0 +1,13 @@
+{{define "service.tmpl"}}// Package service contains the business logic for {{.Config.Name}}.
+package service
+
+// Service defines the interface for business operations.
+type Service interface{}
+
+type service struct{}
+
+// New creates a new Service implementation.
+func New() Service {
+	return &service{}
+}
+{{end}}

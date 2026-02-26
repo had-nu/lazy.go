@@ -1,0 +1,23 @@
+{{define "dockerfile.tmpl"}}# syntax=docker/dockerfile:1
+
+# ---- Build Stage ----
+FROM golang:1.22-alpine AS builder
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o /bin/{{.Config.Name}} .
+
+# ---- Runtime Stage ----
+FROM scratch
+
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=builder /bin/{{.Config.Name}} /bin/{{.Config.Name}}
+
+EXPOSE 8080
+
+ENTRYPOINT ["/bin/{{.Config.Name}}"]
+{{end}}

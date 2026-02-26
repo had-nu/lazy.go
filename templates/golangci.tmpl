@@ -1,0 +1,38 @@
+{{define "golangci.tmpl"}}run:
+  timeout: 5m
+  go: "1.22"
+
+linters:
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+{{- if .Config.Features.SAST}}
+    - gosec
+{{- end}}
+    - gofmt
+    - misspell
+    - revive
+    - unconvert
+    - unparam
+
+linters-settings:
+  revive:
+    rules:
+      - name: exported
+        severity: warning
+  gosec:
+    excludes:
+      - G204  # subprocess launched with variable — review each case
+{{- if .Config.Features.SAST}}
+
+issues:
+  exclude-rules:
+    - path: "_test\\.go"
+      linters:
+        - gosec
+{{- end}}
+{{end}}

@@ -1,0 +1,13 @@
+{{define "lib_test.tmpl"}}package {{.LibName}}_test
+
+import (
+	"testing"
+
+	"{{.Config.ModulePath}}/pkg/{{.LibName}}"
+)
+
+func TestExample(t *testing.T) {
+	_ = {{.LibName}}.Example
+	t.Log("TODO: add real tests")
+}
+{{end}}

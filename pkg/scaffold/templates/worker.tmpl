@@ -1,0 +1,42 @@
+{{define "worker.tmpl"}}// Package worker provides background worker logic for {{.Config.Name}}.
+package worker
+
+import (
+	"context"
+	"log"
+	"time"
+)
+
+// Worker processes tasks in the background.
+type Worker struct {
+	interval time.Duration
+}
+
+// New creates a Worker with the given polling interval.
+func New(interval time.Duration) *Worker {
+	return &Worker{interval: interval}
+}
+
+// Run starts the worker loop. It blocks until ctx is cancelled.
+func (w *Worker) Run(ctx context.Context) error {
+	ticker := time.NewTicker(w.interval)
+	defer ticker.Stop()
+
+	for {
+		select {
+		case <-ctx.Done():
+			log.Println("worker: shutting down")
+			return ctx.Err()
+		case <-ticker.C:
+			if err := w.process(ctx); err != nil {
+				log.Printf("worker: processing error: %v", err)
+			}
+		}
+	}
+}
+
+func (w *Worker) process(_ context.Context) error {
+	// TODO: implement task processing
+	return nil
+}
+{{end}}

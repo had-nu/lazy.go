@@ -1,0 +1,13 @@
+{{define "repository.tmpl"}}// Package repository provides data access abstractions for {{.Config.Name}}.
+package repository
+
+// Repository defines the interface for data persistence.
+type Repository interface{}
+
+type repository struct{}
+
+// New creates a new Repository implementation.
+func New() Repository {
+	return &repository{}
+}
+{{end}}

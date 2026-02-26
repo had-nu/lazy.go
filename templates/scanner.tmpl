@@ -1,0 +1,36 @@
+{{define "scanner.tmpl"}}// Package scanner provides scanning functionality for {{.Config.Name}}.
+package scanner
+
+import (
+	"context"
+	"fmt"
+)
+
+// Finding represents a single scanner finding.
+type Finding struct {
+	ID       string
+	Severity string
+	Message  string
+	Location string
+}
+
+// Scanner can scan targets for security issues.
+type Scanner interface {
+	Scan(ctx context.Context, target string) ([]Finding, error)
+}
+
+type scanner struct{}
+
+// New creates a new Scanner.
+func New() Scanner {
+	return &scanner{}
+}
+
+func (s *scanner) Scan(_ context.Context, target string) ([]Finding, error) {
+	if target == "" {
+		return nil, fmt.Errorf("target cannot be empty")
+	}
+	// TODO: implement scanning logic
+	return nil, nil
+}
+{{end}}
