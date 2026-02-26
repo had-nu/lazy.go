@@ -1,0 +1,30 @@
+# Binaries
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test output
+*.test
+*.out
+coverage.out
+coverage.html
+
+# Generated projects (do not commit test runs)
+myapi/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config backups
+lazygo.yml.bak
+test_lazy.yml
