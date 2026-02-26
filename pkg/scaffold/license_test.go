@@ -3,8 +3,8 @@ package scaffold_test
 import (
 	"testing"
 
-	"github.com/hadnu/lazy.go/pkg/config"
-	"github.com/hadnu/lazy.go/pkg/scaffold"
+	"github.com/had-nu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/scaffold"
 )
 
 func TestGenerateLicense_MIT(t *testing.T) {

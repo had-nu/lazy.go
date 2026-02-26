@@ -32,7 +32,7 @@ This is not a democracy. But it is a discussion.
 ## Setup
 
 ```bash
-git clone https://github.com/hadnu/lazy.go
+git clone https://github.com/had-nu/lazy.go
 cd lazy.go
 go mod download
 make test

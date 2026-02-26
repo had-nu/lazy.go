@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hadnu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/config"
 )
 
 // ShouldEnableSecurity returns true when the project warrants security tooling.

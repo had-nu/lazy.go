@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/hadnu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/config"
 )
 
 // GenerateLicense returns the full license text for the given type.

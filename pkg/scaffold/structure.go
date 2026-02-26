@@ -1,7 +1,7 @@
 package scaffold
 
 import (
-	"github.com/hadnu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/config"
 )
 
 // BuildDirectoryTree returns the list of directories and files to create

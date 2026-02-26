@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/hadnu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/config"
 )
 
 func TestLoadFromYAML_RoundTrip(t *testing.T) {

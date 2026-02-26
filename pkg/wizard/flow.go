@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hadnu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/config"
 )
 
 // NextStep returns the next wizard step based on current state.

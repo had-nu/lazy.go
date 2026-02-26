@@ -8,7 +8,7 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 
-	"github.com/hadnu/lazy.go/pkg/wizard"
+	"github.com/had-nu/lazy.go/pkg/wizard"
 )
 
 // ---- Styles ----------------------------------------------------------------

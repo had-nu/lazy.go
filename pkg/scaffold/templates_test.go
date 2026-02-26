@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hadnu/lazy.go/pkg/config"
-	"github.com/hadnu/lazy.go/pkg/scaffold"
+	"github.com/had-nu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/scaffold"
 )
 
 type tmplData struct {

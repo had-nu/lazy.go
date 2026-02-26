@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hadnu/lazy.go/pkg/wizard"
+	"github.com/had-nu/lazy.go/pkg/wizard"
 )
 
 // View renders the current state to a string for BubbleTea.

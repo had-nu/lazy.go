@@ -1,4 +1,4 @@
-module github.com/hadnu/lazy.go
+module github.com/had-nu/lazy.go
 
 go 1.25.7
 

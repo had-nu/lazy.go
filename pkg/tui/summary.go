@@ -3,8 +3,8 @@ package tui
 import (
 	"strings"
 
-	"github.com/hadnu/lazy.go/pkg/config"
-	"github.com/hadnu/lazy.go/pkg/wizard"
+	"github.com/had-nu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/wizard"
 )
 
 // RenderSummary returns a human-readable summary of the collected configuration.

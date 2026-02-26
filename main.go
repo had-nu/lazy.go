@@ -10,12 +10,12 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/spf13/cobra"
 
-	"github.com/hadnu/lazy.go/pkg/config"
-	ghpkg "github.com/hadnu/lazy.go/pkg/github"
-	"github.com/hadnu/lazy.go/pkg/scaffold"
-	"github.com/hadnu/lazy.go/pkg/security"
-	"github.com/hadnu/lazy.go/pkg/tui"
-	"github.com/hadnu/lazy.go/pkg/wizard"
+	"github.com/had-nu/lazy.go/pkg/config"
+	ghpkg "github.com/had-nu/lazy.go/pkg/github"
+	"github.com/had-nu/lazy.go/pkg/scaffold"
+	"github.com/had-nu/lazy.go/pkg/security"
+	"github.com/had-nu/lazy.go/pkg/tui"
+	"github.com/had-nu/lazy.go/pkg/wizard"
 )
 
 const version = "0.1.0"

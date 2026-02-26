@@ -7,7 +7,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/hadnu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/config"
 )
 
 // DirEntry describes a single file or directory to create.

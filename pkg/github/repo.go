@@ -11,7 +11,7 @@ import (
 	gh "github.com/google/go-github/v69/github"
 	"golang.org/x/oauth2"
 
-	"github.com/hadnu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/config"
 )
 
 // RepoOptions holds settings for repository creation.

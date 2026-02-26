@@ -3,7 +3,7 @@ package wizard_test
 import (
 	"testing"
 
-	"github.com/hadnu/lazy.go/pkg/wizard"
+	"github.com/had-nu/lazy.go/pkg/wizard"
 )
 
 func TestValidateProjectName_Valid(t *testing.T) {

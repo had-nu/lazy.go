@@ -29,13 +29,13 @@ lazy.go forces you to think for five seconds about what you're actually building
 ## Install
 
 ```bash
-go install github.com/hadnu/lazy.go@latest
+go install github.com/had-nu/lazy.go@latest
 ```
 
 Or build it yourself, it compiles in under 3 seconds because it doesn't pull in half of npm:
 
 ```bash
-git clone https://github.com/hadnu/lazy.go
+git clone https://github.com/had-nu/lazy.go
 cd lazy.go
 make build
 ```
