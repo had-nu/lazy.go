@@ -1,0 +1,17 @@
+{{define "internal_app.tmpl"}}// Package app provides the core application logic for {{.Config.Name}}.
+package app
+
+import "context"
+
+// App is the main application struct.
+type App struct{}
+
+// New creates a new App.
+func New() *App { return &App{} }
+
+// Run starts the application and blocks until ctx is done.
+func (a *App) Run(ctx context.Context) error {
+	<-ctx.Done()
+	return nil
+}
+{{end}}

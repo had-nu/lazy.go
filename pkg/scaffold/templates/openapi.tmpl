@@ -1,0 +1,23 @@
+{{define "openapi.tmpl"}}openapi: "3.0.3"
+info:
+  title: {{.Config.Name}} API
+  description: {{.Config.Description}}
+  version: "0.1.0"
+  contact:
+    name: {{.Config.Author}}
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+{{end}}

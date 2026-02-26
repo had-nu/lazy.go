@@ -1,0 +1,32 @@
+{{define "gitignore.tmpl"}}# Binaries
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+{{.Config.Name}}
+
+# Test artifacts
+*.test
+*.out
+coverage.out
+coverage.html
+
+# Build cache
+/vendor/
+
+# Config
+lazygo.yml.bak
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+{{end}}

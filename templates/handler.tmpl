@@ -1,0 +1,24 @@
+{{define "handler.tmpl"}}// Package handler provides HTTP handlers for {{.Config.Name}}.
+package handler
+
+import (
+	"encoding/json"
+	"net/http"
+	"{{.Config.ModulePath}}/internal/config"
+)
+
+// Register attaches all route handlers to the provided mux.
+func Register(mux *http.ServeMux, cfg *config.Config) {
+	mux.HandleFunc("GET /health", healthHandler)
+	mux.HandleFunc("GET /api/v1/", notImplementedHandler)
+}
+
+func healthHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{"status": "ok"}) //nolint:errcheck
+}
+
+func notImplementedHandler(w http.ResponseWriter, _ *http.Request) {
+	http.Error(w, "not implemented", http.StatusNotImplemented)
+}
+{{end}}

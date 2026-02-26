@@ -1,0 +1,38 @@
+{{define "report.tmpl"}}// Package report formats and outputs scanner findings.
+package report
+
+import (
+	"fmt"
+	"io"
+	"os"
+)
+
+// Finding represents a reportable item.
+type Finding struct {
+	ID       string
+	Severity string
+	Message  string
+	Location string
+}
+
+// Reporter outputs findings.
+type Reporter interface {
+	Write(findings []Finding) error
+}
+
+type textReporter struct {
+	w io.Writer
+}
+
+// NewText creates a plain-text reporter writing to stdout.
+func NewText() Reporter {
+	return &textReporter{w: os.Stdout}
+}
+
+func (r *textReporter) Write(findings []Finding) error {
+	for _, f := range findings {
+		fmt.Fprintf(r.w, "[%s] %s — %s (%s)\n", f.Severity, f.ID, f.Message, f.Location)
+	}
+	return nil
+}
+{{end}}
