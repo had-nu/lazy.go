@@ -26,7 +26,7 @@ func (m Model) View() string {
 }
 
 func renderHeader(state wizard.WizardState) string {
-	title := styleHeader.Render(" 🚀 lazy.go — Go Project Generator ")
+	title := styleHeader.Render(" lazy.go — Go Project Generator ")
 	progress := renderProgressBar(wizard.ProgressPercent(state), 40)
 	stepLabel := styleMuted.Render(fmt.Sprintf(" Step %d/%d — %s",
 		int(state.CurrentStep)+1, wizard.TotalSteps, state.CurrentStep.String()))
