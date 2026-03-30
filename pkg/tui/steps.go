@@ -94,8 +94,8 @@ func renderFeatureToggles(m Model) string {
 		if m.toggles[i] {
 			toggle = styleSuccess.Render("☑")
 		}
-		sb.WriteString(fmt.Sprintf("%s%s  %s\n", cursor, toggle,
-			styleUnselected.Render(fc.Label)))
+		fmt.Fprintf(&sb, "%s%s  %s\n", cursor, toggle,
+			styleUnselected.Render(fc.Label))
 	}
 	return styleBox.Render(sb.String())
 }
