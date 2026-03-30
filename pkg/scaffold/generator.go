@@ -115,7 +115,6 @@ func RenderAll(cfg *config.ProjectConfig) (map[string]string, error) {
 var funcMap = template.FuncMap{
 	"upper":   strings.ToUpper,
 	"lower":   strings.ToLower,
-	"title":   strings.Title, //nolint:staticcheck
 	"replace": strings.ReplaceAll,
 	"join":    strings.Join,
 }
