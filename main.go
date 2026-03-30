@@ -13,7 +13,6 @@ import (
 	"github.com/had-nu/lazy.go/pkg/config"
 	ghpkg "github.com/had-nu/lazy.go/pkg/github"
 	"github.com/had-nu/lazy.go/pkg/scaffold"
-	"github.com/had-nu/lazy.go/pkg/security"
 	"github.com/had-nu/lazy.go/pkg/tui"
 	"github.com/had-nu/lazy.go/pkg/wizard"
 )
@@ -125,9 +124,6 @@ var versionCmd = &cobra.Command{
 // ---- Generation Pipeline ---------------------------------------------------
 
 func runGeneration(cfg *config.ProjectConfig) error {
-	// Apply security defaults for production/critical projects.
-	security.EnforceSecurity(cfg)
-
 	// Determine output directory.
 	outDir := filepath.Join(".", cfg.Name)
 
@@ -202,9 +198,10 @@ func printTree(root string) {
 }
 
 func indentStr(depth int) string {
-	s := ""
-	for i := 0; i < depth; i++ {
-		s += "│   "
+	var sb strings.Builder
+	for range depth {
+		sb.WriteString("│   ")
 	}
-	return s + "├── "
+	sb.WriteString("├── ")
+	return sb.String()
 }
