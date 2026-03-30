@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/had-nu/lazy.go/pkg/config"
+	"github.com/had-nu/lazy.go/pkg/security"
 )
 
 // NextStep returns the next wizard step based on current state.
@@ -62,15 +63,9 @@ func BuildConfig(state WizardState) *config.ProjectConfig {
 		},
 	}
 
-	// Auto-enable security for production / security-critical projects.
-	if cfg.IsSecure() {
-		cfg.Features.StaticAnalysis = true
-		cfg.Features.SAST = true
-		cfg.Features.Tests = true
-		if cfg.Features.GitHubActions {
-			cfg.Features.Dependabot = true
-		}
-	}
+	// Single source of truth for security enforcement.
+	// EnforceSecurity is a no-op for experimental projects.
+	security.EnforceSecurity(cfg)
 
 	// Auto-suggest license when not set.
 	if cfg.License == "" {
