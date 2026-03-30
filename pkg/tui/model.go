@@ -98,9 +98,6 @@ func New() Model {
 
 // ---- Messages --------------------------------------------------------------
 
-type errMsg string
-type doneMsg struct{}
-
 // ---- Init ------------------------------------------------------------------
 
 func (m Model) Init() tea.Cmd {

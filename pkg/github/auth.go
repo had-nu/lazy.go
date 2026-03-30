@@ -3,8 +3,8 @@ package github
 import (
 	"errors"
 	"fmt"
+	"os"
 	"os/exec"
-	"strings"
 )
 
 // ValidateAuth checks that the user is authenticated with the GitHub CLI.
@@ -31,12 +31,8 @@ func TokenFromEnv() string {
 
 // lookupEnv is os.LookupEnv extracted for testability.
 var lookupEnv = func(key string) string {
-	cmd := exec.Command("sh", "-c", fmt.Sprintf("echo ${%s}", key)) //nolint:gosec
-	out, err := cmd.Output()
-	if err != nil {
-		return ""
-	}
-	return strings.TrimSpace(string(out))
+	v, _ := os.LookupEnv(key)
+	return v
 }
 
 // ErrNotAuthenticated is returned when GitHub CLI is not logged in.
